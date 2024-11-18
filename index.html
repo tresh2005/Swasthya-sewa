@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swasthya Sewa</title>
+    <link rel="stylesheet" href='/static/web.css'>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>स्वास्थ्य सेवा (Swasthya Sewa)</h1>
+        <p>Your Health, Our Priority</p>
+    </header>
+    <section id="doctors"><div id="doctors"> <h2>Why Healthy Body Is Important?</h2></div> 
+        <div class="doctor-list">
+            <div class="doctor-card"><p> A healthy body is essential because it serves as the foundation for a fulfilling and active life. When the body is in good physical condition, it enables us to perform daily activities with energy and ease, reducing the risk of chronic illnesses like heart disease, diabetes, and obesity. Good health supports a stronger immune system, helping us fend off infections and recover more quickly when we do get sick. Physical well-being is also closely tied to mental health, as exercise and proper nutrition can improve mood, reduce stress, and boost cognitive function. Ultimately, a healthy body allows us to live longer, more independent lives, and pursue our goals with vitality and resilience.</p>
+            </div>
+        </div>
+        </section>
+
+    <!-- Doctor Directory -->
+    <section id="doctors">
+        <h2>Our Doctors</h2>
+        <div class="doctor-list">
+            <div class="doctor-card">
+                <h3>Dr. A. Sharma - Cardiologist</h3>
+                <p>Contact: 123-456-7890</p>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. B. Gupta - Dermatologist</h3>
+                <p>Contact: 234-567-8901</p>
+            </div>
+            <div class="doctor-card">
+                <h3>Dr. C. Verma - Orthopedic Surgeon</h3>
+                <p>Contact: 345-678-9012</p>
+            </div>
+            <!-- Add more doctor details as needed -->
+        </div>
+    </section>
+
+    <!-- Diet Chart -->
+    <section id="diet-chart">
+        <h2>Diet Chart</h2>
+        <p>Follow this basic diet chart for a balanced, healthy life:</p>
+        <table>
+            <tr>
+                <th>Meal</th>
+                <th>Recommended Food</th>
+            </tr>
+            <tr>
+                <td>Breakfast</td>
+                <td>Oatmeal, Fruits, Nuts</td>
+            </tr>
+            <tr>
+                <td>Lunch</td>
+                <td>Vegetable Salad, Lentils, Whole Grain</td>
+            </tr>
+            <tr>
+                <td>Evening Snack</td>
+                <td>Yogurt, Fruit Smoothie, Mixed Nuts</td>
+            </tr>
+            <tr>
+                <td>Dinner</td>
+                <td>Grilled Vegetables, Brown Rice, Lean Protein</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="/submit_form" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Display flash message -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </section>
+
+    <script src="web.js"></script>
+</body>
+</html>
