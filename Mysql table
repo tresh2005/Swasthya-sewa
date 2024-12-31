@@ -1,0 +1,64 @@
+CREATE TABLE users (
+  id INT AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  birthday DATE NOT NULL,
+  height FLOAT NOT NULL,
+  weight FLOAT NOT NULL,
+  gender VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE workouts (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  workout_type VARCHAR(255) NOT NULL,
+  duration INT NOT NULL,
+  calories_burned FLOAT NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE nutrition (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  food_name VARCHAR(255) NOT NULL,
+  calories INT NOT NULL,
+  macronutrients VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE sleep (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  sleep_duration INT NOT NULL,
+  sleep_quality VARCHAR(255) NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE goals (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  goal_type VARCHAR(255) NOT NULL,
+  target_value FLOAT NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE progress (
+  id INT AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  progress_type VARCHAR(255) NOT NULL,
+  progress_value FLOAT NOT NULL,
+  date DATE NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+); 
